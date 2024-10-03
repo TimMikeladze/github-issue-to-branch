@@ -1,34 +1,48 @@
-# github-issue-to-branch
+# 🎋 GitHub Issue to Branch
 
-A script that uses the Github CLI `gh` to automatically create and name new branches using an issue number.
+CLI tool to quickly create well-named branches from GitHub issues. 
 
-## Usage
+> 👋 Hello there! Follow me [@linesofcode](https://twitter.com/linesofcode) or visit [linesofcode.dev](https://linesofcode.dev) for more cool projects like this one.
 
-```bash
-ghib <issue_number1> [<issue_number2> ...] [postfix]
+## 🚀 Getting Started
+
+```console
+npm install -g github-issue-to-branch
+
+pnpm add -g github-issue-to-branch
+
+yarn global add github-issue-to-branch
 ```
 
-## Example
+> ⚠️ Prerequisites: You need to have `git` and `gh` ([Github CLI](https://github.com/cli/cli)) installed on your machine.
 
-```bash
-# Assume the there in issue 123 with the title "implement feature x".
-# A git branch named `123-implement-feature-x` will be created.
-ghib 123
 
-# You can also specify multiple issues
-ghib 123 124 125
+## 📖 Usage
 
-# And you can add a postfix to the branch name
-ghib 123 testing
-# The above command will create a branch named `123-implement-feature-x-testing`
+Simply run the `ghib` command with the issue number(s) you want to create a branch from.
+
+The command will create a new branch with the name in the following format: `<number>-<issue-title>`.
+
+```console
+ghib 1234
 ```
 
-## Installation
 
-```bash
-# make the script executable
-chmod +x ghib.sh
+```console
+Usage: github-issue-to-branch <issue-number> [<issue-number>...] [<postfix>]
+   or: ghib <issue-number> [<issue-number>...] [<postfix>]
 
-# automatically add the script to an alias in your shell
-./ghib.sh --setup
+Create a Git branch from one or more GitHub issue numbers.
+
+Arguments:
+  <issue-number>  One or more GitHub issue numbers
+  <postfix>       Optional postfix to add to the branch name
+
+Examples:
+  github-issue-to-branch 123 456
+  ghib 789 quick-fix  # 'quick-fix' is an optional postfix
+
+Note: The postfix is entirely optional. It can be used for any additional context
+you want to add to your branch name, such as 'quick-fix', 'wip', or even your initials.
 ```
+
