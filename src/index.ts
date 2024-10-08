@@ -29,6 +29,16 @@ export const checkDependencies = (exec: ExecCommand): void => {
 	}
 };
 
+// Check Github CLI authentication status
+export const checkAuthStatus = (exec: ExecCommand) => {
+	const status = exec("gh auth status");
+	if (!status) {
+		throw new Error(
+			"You are not logged into Github CLI. Please run 'gh auth login'",
+		);
+	}
+};
+
 // Function to slugify a string
 export const slugify = (input: string): string => {
 	return (
@@ -93,6 +103,7 @@ export const createGitBranchFromIssues = (
 	exec: ExecCommand,
 ): { branchName: string; created: boolean } => {
 	checkDependencies(exec);
+	checkAuthStatus(exec);
 
 	if (args.length === 0) {
 		throw new Error("No issue numbers provided.");
