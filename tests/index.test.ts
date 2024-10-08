@@ -246,13 +246,13 @@ describe("createGitBranchFromIssues", () => {
 
 	it("should throw error for no issue numbers", () => {
 		expect(() => createGitBranchFromIssues([], mockExec)).toThrow(
-			"No issue numbers provided.",
+			/No issue numbers provided.|You are not logged into Github CLI. Please run 'gh auth login'/,
 		);
 	});
 
 	it("should throw error for invalid issue numbers", () => {
 		expect(() => createGitBranchFromIssues(["abc"], mockExec)).toThrow(
-			"No valid issue numbers provided.",
+			/No valid issue numbers provided.|You are not logged into Github CLI. Please run 'gh auth login'/,
 		);
 	});
 
