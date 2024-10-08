@@ -1,7 +1,7 @@
 {
 	"name": "github-issue-to-branch",
 	"description": "CLI tool to quickly create well-named branches from GitHub issues.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Tim Mikeladze <tim.mikeladze@gmail.com>",
 	"license": "MIT",
 	"keywords": [
